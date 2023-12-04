@@ -13,7 +13,8 @@ const config: Config = {
         customGreen: '#10D570',
         customWhite: '#FFFFFF',
         customDarkGreen: '#025908',
-        customLightGreen: '#04D912'
+        customLightGreen: '#04D912',
+        customDark: '#1C2D3D'
       }
     }
   },
