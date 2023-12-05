@@ -5,7 +5,7 @@ import DashboardSection3 from "../components/dashboadsection3"
 
 export default function Dashboard(){
     return(
-       <div className="flex divide-x-2 ">
+       <div className="flex  bg-white">
 
         <Sidebar></Sidebar>
         <DashboardSection2></DashboardSection2>

@@ -5,7 +5,7 @@ export default function Goalcard(){
 
     
     return(
-        <div className = "h-auto w-1/3 rounded-lg bg-customDark p-3">
+        <div className = "h-28 w-28 rounded-lg bg-customDark p-3">
                 <h1>Web Development</h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati voluptates assumenda distinctio a vero dolorum accusantium ullam eum perferendis, adipisci ab pariatur saepe, soluta impedit!</p>
                 <div className="flex">
