@@ -1,6 +1,9 @@
  'use client'
 import { useState,useEffect } from "react";
 import Login from "../components/loginform";
+import  {useRouter} from "next/navigation"
+import authContext from '../components/context';
+
 /**
  * Authenticate page component that handles user login and signup.
  * Renders either the Login or Signup component based on isNewUser state.
@@ -8,7 +11,16 @@ import Login from "../components/loginform";
  */
 import Signup from "../components/signupform";
 
-export default function Authenticate() {
+
+interface AuthProps{
+  newUser: boolean[];
+}
+
+
+
+
+
+const Authenticate: React.FC<AuthProps> = ({newUser}) => {
   const [isNewUser, setIsNewUser] = useState(true);
   
 
@@ -17,6 +29,12 @@ export default function Authenticate() {
 
   };
 
+
+  function goToDashboard(){
+    const router = useRouter();
+    router.push("/dashboard");
+  }
+
   const activeForm = (form: HTMLButtonElement) => {
     if (isNewUser){
       form.classList.add("border-b-2", "border-customLightGreen");
@@ -24,13 +42,16 @@ export default function Authenticate() {
   }
 
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
-      <div className="flex justify-center">
+    <div className="flex flex-col h-screen justify-center items-center" >
+      <section className="flex justify-center" >
         <button className={`p-5 ${isNewUser ?`border-b-3 border-black`:`border-b-3 border-customLightGreen`}`} onClick={() => renderAlternateForm(false)}>Login</button>
         <div></div>
         <button className={`p-5 ${isNewUser ?`border-b-3 border-customLightGreen`:`border-b-3 border-black`}`} onClick={() => renderAlternateForm(true)}>Signup</button>
-      </div>
-      {isNewUser ? <Signup /> : <Login />}
+      </section>
+      {isNewUser ? <Signup goToDashboard = {goToDashboard} renderAlternativeForm={renderAlternateForm} /> : <Login />}
     </div>
   );
 }
+
+
+export default Authenticate;
